@@ -8,7 +8,11 @@
 </head>
 
 <style>
-
+button{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
 p{
     text-align: center;
     font-size: 20pt;
@@ -38,20 +42,9 @@ pre {height: 1000px; }
     <pre>
     </pre>
     <div id="scrollInfo" data-scroll-direction="durung di scroll blas loh!">Scolling direction: </div>    
-    
+    <button type="buttton" onclick="valueScroll()">tampilkan scroll</button>
 </body>
-<script>
-    var scrollPos = 0;
-    
-    window.addEventListener('scroll', function(){
-        
-        if ((document.body.getBoundingClientRect()).top > scrollPos)
-                document.getElementById('scrollInfo').setAttribute('data-scroll-direction', 'UP');
-            else
-                document.getElementById('scrollInfo').setAttribute('data-scroll-direction', 'DOWN');
-                
-            scrollPos = (document.body.getBoundingClientRect()).top;
-    });
-</script>
+
+<script src="./js/scroll-detector.js"></script>
 
 </html>
