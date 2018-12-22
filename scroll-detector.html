@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tes Scroll Detector</title>
+</head>
+
+<style>
+
+p{
+    text-align: center;
+    font-size: 20pt;
+    color: cadetblue;
+}
+
+#scrollInfo {
+    padding: 22px;
+    position: fixed;
+    background: #fdf2f2;
+    box-shadow: 3px 3px 3px silver;
+    border-radius: 40px;
+    bottom: 20px;
+    right: 20px;
+}
+
+#scrollInfo::after {
+	content: attr(data-scroll-direction);
+}
+
+pre {height: 1000px; }
+</style>
+
+<body>
+    <p>Tes Scroll detector</p>
+    <p>Challenge from Ade</p>
+    <pre>
+    </pre>
+    <div id="scrollInfo" data-scroll-direction="durung di scroll blas loh!">Scolling direction: </div>    
+    
+</body>
+<script>
+    var scrollPos = 0;
+    
+    window.addEventListener('scroll', function(){
+        
+        if ((document.body.getBoundingClientRect()).top > scrollPos)
+                document.getElementById('scrollInfo').setAttribute('data-scroll-direction', 'UP');
+            else
+                document.getElementById('scrollInfo').setAttribute('data-scroll-direction', 'DOWN');
+                
+            scrollPos = (document.body.getBoundingClientRect()).top;
+    });
+</script>
+
+</html>
